@@ -16,6 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from docker import views
+from docker.views import TodoListView, TodoCreateView, TodoDeleteView
+
 urlpatterns = [
+    path('', views.hello),
+    path('todo/', TodoListView.as_view(), name='todo-list'),
+    path('todo/create/', TodoCreateView.as_view(), name='todo-create'),
+    path('todo/delete/<int:pk>', TodoDeleteView.as_view(), name='todo-delete'),
     path('admin/', admin.site.urls),
 ]

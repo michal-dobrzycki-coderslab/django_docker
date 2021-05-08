@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Articles</h1>
+<a href="create">Add TODO</a>
+<ul>
+{% for todo in object_list %}
+    <li>{{ todo.name }} - {{ todo.pub_date }} | Finished: {{ todo.finished }}  <a
+            href="delete/{{ todo.pk }}">DELETE</a></li>
+{% empty %}
+    <li>No todos yet.</li>
+{% endfor %}
+</ul>
+</body>
+</html>
